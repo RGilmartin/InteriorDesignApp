@@ -6,8 +6,39 @@ Fork, and execute necessary setup steps.
 
 Watch this space for additional project requirements.
 
-User Personas:
+Interior Design App
 
+
+How its Gonna Work:
+Different furniture objects, of different sizes, attributes, different orientations 
+Different room orientations and layouts that you can design 
+Make a copy of the dragged object to appear in the room 
+Filter by Type, Color, Size, 
+Pick out room layout by choosing boxes on the grid to match your desired room
+Have “dorm’ objects, have preset layouts of the different dorm room buildings
+
+interface;
+{
+	Img_url: “”
+	Type: {chair, table, bed, stove, door, etc;}
+	Roomtype: {kitchen, bedroom, living room)
+	Size: {1x3, 1x1}
+	Position: {2,6, etc}
+	Orientation: {0degrees}
+	colorVariation: [blue, green,(different for each type)}
+	height?
+}
+
+
+Part 1 - Backlog
+User Stories:
+As a user, I would like to be able to add items in any direction
+As a user, I would like to be able to resize rooms
+As a user, I would like to be able to change the color of items
+As a user, I would like to be able to sort items by important attributes. 
+
+
+User Personas:
 User 1:
 Who?
 College Freshmen that doesn’t have any experience with interior design
