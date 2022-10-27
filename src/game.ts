@@ -19,9 +19,11 @@ export const movePic = (toX: number, toY: number) => {
     emitChange();
 };
 
+// Checks to make sure that the item is not putting it on itself
 export const canMovePic = (toX: number, toY: number) => {
     const [x, y] = picPosition;
     const dx = toX - x;
+    const dy = toY - y;
 
-    return Math.abs(dx) === 1;
+    return !(toX === x && toY === y);
 };
