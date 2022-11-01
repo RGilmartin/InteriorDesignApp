@@ -4,5 +4,5 @@ export const ItemTypes = {
 
 export type Item = {
     position: [number, number];
-    UID: number;
+    UID: number; // Unique ID
 };

@@ -2,7 +2,8 @@ import { Item } from "./constants";
 
 const items: Item[] = [
     { position: [0, 0], UID: 0 },
-    { position: [0, 5], UID: 1 }
+    { position: [0, 5], UID: 1 },
+    { position: [10, 5], UID: 1 }
 ];
 
 let observer: ((arg0: Item[]) => void) | null = null;
