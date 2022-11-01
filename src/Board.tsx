@@ -4,16 +4,22 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import BoardSquare from "./BoardSquare";
 import "../src/board.css";
+import { Item } from "./constants";
 
-const renderPiece = (x: number, y: number, [picX, picY]: [number, number]) => {
-    if (x === picX && y === picY) {
+// Should eventually pass in the object to render instead of just x and y coordinates
+const renderPiece = (x: number, y: number, item: Item | undefined) => {
+    if (x === item?.position[0] && y === item?.position[1]) {
         return <Pic />;
     }
 };
 
-const renderSquare = (i: number, j: number, picPosition: [number, number]) => {
+// Should pass in object to render
+const renderSquare = (i: number, j: number, items: Item[]) => {
     const x = i;
     const y = j;
+
+    //find if square should be rendering an item
+    const tItem = items.find((i) => i.position[0] === x && i.position[1] === y);
 
     return (
         <div
@@ -24,23 +30,23 @@ const renderSquare = (i: number, j: number, picPosition: [number, number]) => {
                 border: "1px solid black"
             }}
         >
-            <BoardSquare x={x} y={y}>
-                {renderPiece(x, y, picPosition)}
+            <BoardSquare x={x} y={y} item={tItem as Item}>
+                {renderPiece(x, y, tItem)}
             </BoardSquare>
         </div>
     );
 };
 
 type BoardProps = {
-    picPosition: [number, number];
+    items: Item[];
 };
 
 const Board: React.FC<BoardProps> = (props) => {
-    const { picPosition } = props;
+    const { items } = props;
     const squares = [];
     for (let i = 0; i < 16; i++) {
         for (let j = 0; j < 16; j++) {
-            squares.push(renderSquare(i, j, picPosition));
+            squares.push(renderSquare(i, j, items));
         }
     }
     return (

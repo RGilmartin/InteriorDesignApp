@@ -4,8 +4,9 @@ import Board from "./Board";
 import "./index.css";
 import { observe } from "./game";
 import reportWebVitals from "./reportWebVitals";
+import { Item } from "./constants";
 
-observe((picPosition: [number, number]) => {
+observe((items: Item[]) => {
     ReactDOM.render(
         <>
             <div className="row-top">Logo</div>
@@ -19,7 +20,7 @@ observe((picPosition: [number, number]) => {
                                 height: "80vh"
                             }}
                         >
-                            <Board picPosition={picPosition} />
+                            <Board items={items} />
                         </div>
                     </React.StrictMode>
                 </div>
