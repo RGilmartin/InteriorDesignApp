@@ -7,16 +7,23 @@ import reportWebVitals from "./reportWebVitals";
 
 observe((picPosition: [number, number]) => {
     ReactDOM.render(
-        <React.StrictMode>
-            <div
-                style={{
-                    width: "80vh",
-                    height: "80vh"
-                }}
-            >
-                <Board picPosition={picPosition} />
+        <>
+            <div className="row">
+                <div className="column-left">Something</div>
+                <div className="column-right">
+                    <React.StrictMode>
+                        <div
+                            style={{
+                                width: "80vh",
+                                height: "80vh"
+                            }}
+                        >
+                            <Board picPosition={picPosition} />
+                        </div>
+                    </React.StrictMode>
+                </div>
             </div>
-        </React.StrictMode>,
+        </>,
         document.getElementById("root")
     );
 });
