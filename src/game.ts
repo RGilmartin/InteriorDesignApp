@@ -1,8 +1,15 @@
-let picPosition = [0, 0];
-let observer: ((arg0: number[]) => void) | null = null;
+import { Item } from "./constants";
+
+const items: Item[] = [
+    { position: [0, 0], UID: 0 },
+    { position: [0, 5], UID: 1 },
+    { position: [10, 5], UID: 1 }
+];
+
+let observer: ((arg0: Item[]) => void) | null = null;
 
 const emitChange = () => {
-    observer && observer(picPosition);
+    observer && observer(items);
 };
 
 export const observe = (o: any) => {
@@ -14,16 +21,21 @@ export const observe = (o: any) => {
     emitChange();
 };
 
-export const movePic = (toX: number, toY: number) => {
-    picPosition = [toX, toY];
+export const movePic = (toX: number, toY: number, nItem: Item) => {
+    console.log(nItem.UID);
+    const ind = items.findIndex((i) => i.UID === nItem.UID);
+    if (ind !== -1) {
+        const it = items.at(ind) as Item;
+        it.position = [toX, toY];
+    }
     emitChange();
 };
 
 // Checks to make sure that the item is not putting it on itself
-export const canMovePic = (toX: number, toY: number) => {
-    const [x, y] = picPosition;
-    const dx = toX - x;
-    const dy = toY - y;
-
-    return !(toX === x && toY === y);
+export const canMovePic = () => {
+    // const [x, y] = picPosition[index];
+    // const dx = toX - x;
+    // const dy = toY - y;
+    // return !(toX === x && toY === y);
+    return true;
 };
