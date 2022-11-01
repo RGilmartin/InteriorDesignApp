@@ -3,6 +3,7 @@ import Pic from "./Pic";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import BoardSquare from "./BoardSquare";
+import "../src/board.css";
 
 const renderPiece = (x: number, y: number, [picX, picY]: [number, number]) => {
     if (x === picX && y === picY) {
@@ -17,7 +18,11 @@ const renderSquare = (i: number, j: number, picPosition: [number, number]) => {
     return (
         <div
             key={i}
-            style={{ width: "10vh", height: "10vh", border: "1px solid black" }}
+            style={{
+                width: "50px",
+                height: "50px",
+                border: "1px solid black"
+            }}
         >
             <BoardSquare x={x} y={y}>
                 {renderPiece(x, y, picPosition)}
@@ -33,26 +38,23 @@ type BoardProps = {
 const Board: React.FC<BoardProps> = (props) => {
     const { picPosition } = props;
     const squares = [];
-    for (let i = 0; i < 8; i++) {
-        for (let j = 0; j < 8; j++) {
+    for (let i = 0; i < 16; i++) {
+        for (let j = 0; j < 16; j++) {
             squares.push(renderSquare(i, j, picPosition));
         }
     }
     return (
-        <>
-            <DndProvider backend={HTML5Backend}>
-                <div
-                    style={{
-                        width: "100%",
-                        height: "100%",
-                        display: "flex",
-                        flexWrap: "wrap"
-                    }}
-                >
-                    {squares}
-                </div>
-            </DndProvider>
-        </>
+        <DndProvider backend={HTML5Backend}>
+            <div
+                className="board"
+                style={{
+                    width: "100%",
+                    height: "100%"
+                }}
+            >
+                {squares}
+            </div>
+        </DndProvider>
     );
 };
 

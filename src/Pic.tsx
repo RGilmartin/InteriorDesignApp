@@ -18,15 +18,14 @@ const Pic: React.FC = () => {
                     opacity: isDragging ? 1 : 0.5,
                     fontSize: 50,
                     fontWeight: "bold",
-                    cursor: "move",
-                    textAlign: "center"
+                    cursor: "move"
                 }}
             >
                 {/*♘*/}
                 <img
                     src={require("./bosun_tally.jpg")}
-                    width="80"
-                    height="80"
+                    width="50"
+                    height="50"
                 />
             </div>
         </Fragment>
