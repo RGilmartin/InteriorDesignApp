@@ -12,6 +12,7 @@ const emitChange = () => {
     observer && observer(items);
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const observe = (o: any) => {
     if (observer) {
         throw new Error("Multiple observers not implemented.");
