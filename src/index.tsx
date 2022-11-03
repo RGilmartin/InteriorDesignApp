@@ -9,8 +9,9 @@ import { Item } from "./constants";
 observe((items: Item[]) => {
     ReactDOM.render(
         <>
+            <div className="row-top">Logo</div>
             <div className="row">
-                <div className="column-left">Something</div>
+                <div className="column-left">Furniture</div>
                 <div className="column-right">
                     <React.StrictMode>
                         <div
