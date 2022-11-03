@@ -1,9 +1,9 @@
 import { Item } from "./constants";
 
 const items: Item[] = [
-    { position: [0, 0], UID: 0 },
-    { position: [0, 5], UID: 1 },
-    { position: [10, 5], UID: 1 }
+    { position: [0, 0], UID: 0, color: "blue", height: 5, width: 1, image: "" },
+    { position: [0, 5], UID: 1, color: "blue", height: 5, width: 1, image: "" },
+    { position: [12, 0], UID: 2, color: "blue", height: 5, width: 1, image: "" }
 ];
 
 let observer: ((arg0: Item[]) => void) | null = null;
