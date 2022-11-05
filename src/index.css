@@ -24,7 +24,12 @@ code {
 
 /* Clear floats after the columns */
 .row:after {
+    content: ""; 
+    display: table; 
+    clear: both; 
+}
+
+.row--top {
+    height: 30%;
     content: "";
-    display: table;
-    clear: both;
 }
