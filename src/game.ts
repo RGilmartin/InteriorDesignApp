@@ -1,10 +1,13 @@
 import { Item } from "./constants";
 
+// List of items
 const items: Item[] = [
     { position: [0, 0], UID: 0, color: "blue", height: 5, width: 1, image: "" },
     { position: [0, 5], UID: 1, color: "blue", height: 5, width: 1, image: "" },
     { position: [12, 0], UID: 2, color: "blue", height: 5, width: 1, image: "" }
 ];
+
+// Probably needs a function to check if item is in list and add to list if not
 
 let observer: ((arg0: Item[]) => void) | null = null;
 
@@ -22,13 +25,27 @@ export const observe = (o: any) => {
     emitChange();
 };
 
-export const movePic = (toX: number, toY: number, nItem: Item) => {
-    console.log(nItem.UID);
-    const ind = items.findIndex((i) => i.UID === nItem.UID);
-    if (ind !== -1) {
-        const it = items.at(ind) as Item;
-        it.position = [toX, toY];
-    }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const movePic = (toX: number, toY: number, nItem: any) => {
+    // nItem is an object that looks like: {type: *type defined by ItemType in constants.ts*, item: Item}
+
+    // Finding the index of the item passed in parameter in array of items
+    const tItemIndex = items.findIndex((i) => {
+        return i.UID === nItem["item"].UID;
+    });
+
+    const it = nItem["item"];
+    // removing identical item from list
+    items.splice(tItemIndex, 1);
+    // adding the item back to list with new position coordinates
+    items.push({
+        position: [toX, toY],
+        UID: it.UID,
+        color: it.color,
+        height: it.height,
+        width: it.width,
+        image: it.image
+    } as Item);
     emitChange();
 };
 
