@@ -1,8 +1,8 @@
 import React from "react";
 import { useDrop } from "react-dnd";
-import { Item, ItemTypes } from "./constants";
-import { canMovePic, movePic } from "./game";
-import Overlay from "./Overlay";
+import { Item, ItemTypes } from "../constants";
+import { canMovePic, movePic } from "../game";
+import Overlay from "../Overlay";
 import Square from "./Square";
 
 type BoardSquareProps = {
