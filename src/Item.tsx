@@ -1,10 +1,13 @@
 import React, { Fragment } from "react";
 import { useDrag } from "react-dnd";
-import { ItemTypes } from "./constants";
+import { Item, ItemTypes } from "./constants";
 
-const Pic: React.FC = () => {
+type ItemProps = { item: Item };
+
+const ItemComp: React.FC<ItemProps> = (props) => {
+    const { item } = props;
     const [{ isDragging }, drag] = useDrag({
-        item: { type: ItemTypes.PIC },
+        item: { type: ItemTypes.PIC, item: item },
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging
         })
@@ -32,4 +35,4 @@ const Pic: React.FC = () => {
     );
 };
 
-export default Pic;
+export default ItemComp;

@@ -1,5 +1,5 @@
 import React from "react";
-import { useDrop } from "react-dnd";
+import { DragObjectWithType, useDrop } from "react-dnd";
 import { Item, ItemTypes } from "./constants";
 import { canMovePic, movePic } from "./game";
 import Overlay from "./Overlay";
@@ -12,15 +12,14 @@ type BoardSquareProps = {
 };
 
 const BoardSquare: React.FC<BoardSquareProps> = (props) => {
-    const { x, y, item, children } = props;
+    const { x, y, children } = props;
     const black = false; /*(x + y) % 2 === 1;*/
     const [{ isOver, canDrop }, drop] = useDrop({
         accept: ItemTypes.PIC,
         canDrop: () => {
-            console.log("Square:" + x + ":" + y + " item: " + item?.UID);
             return canMovePic();
         },
-        drop: () => movePic(x, y, item),
+        drop: (it: DragObjectWithType) => movePic(x, y, it),
         collect: (monitor) => ({
             isOver: !!monitor.isOver(),
             canDrop: !!monitor.canDrop()

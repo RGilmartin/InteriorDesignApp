@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 import { Item } from "./constants";
 
 const items: Item[] = [
@@ -13,6 +12,7 @@ const emitChange = () => {
     observer && observer(items);
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const observe = (o: any) => {
     if (observer) {
         throw new Error("Multiple observers not implemented.");
@@ -22,18 +22,21 @@ export const observe = (o: any) => {
     emitChange();
 };
 
-export const movePic = (toX: number, toY: number, nItem: Item) => {
-    console.log(nItem.UID);
-    const ind = items.findIndex((i) => i.UID === nItem.UID);
-    console.log(items[ind].UID);
-    items = items.map((it: Item, index) => {
-        it.UID,
-            it.color,
-            it.height,
-            it.image,
-            it.width,
-            index === ind ? [toX, toY] : it.position;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const movePic = (toX: number, toY: number, nItem: any) => {
+    const tItemIndex = items.findIndex((i) => {
+        return i.UID === nItem["item"].UID;
     });
+    const it = nItem["item"];
+    items.splice(tItemIndex, 1);
+    items.push({
+        position: [toX, toY],
+        UID: it.UID,
+        color: it.color,
+        height: it.height,
+        width: it.width,
+        image: it.image
+    } as Item);
     emitChange();
 };
 
