@@ -1,15 +1,15 @@
 import React from "react";
-import Pic from "./Pic";
+import Pic from "../Item";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import BoardSquare from "./BoardSquare";
 import "../src/board.css";
-import { Item } from "./constants";
+import { Item } from "../constants";
 
 // Should eventually pass in the object to render instead of just x and y coordinates
 const renderPiece = (x: number, y: number, item: Item | undefined) => {
     if (x === item?.position[0] && y === item?.position[1]) {
-        return <Pic />;
+        return <Pic item={item} />;
     }
 };
 
