@@ -24,11 +24,10 @@ const ItemComp: React.FC<ItemProps> = (props) => {
                     cursor: "move"
                 }}
             >
-                {/*♘*/}
                 <img
                     src={require("./bosun_tally.jpg")}
-                    width="50"
-                    height="50"
+                    width="50px"
+                    height="50px"
                 />
             </div>
         </Fragment>

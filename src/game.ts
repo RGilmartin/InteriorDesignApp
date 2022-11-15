@@ -49,11 +49,11 @@ export const movePic = (toX: number, toY: number, nItem: any) => {
     emitChange();
 };
 
-// Checks to make sure that the item is not putting it on itself
-export const canMovePic = () => {
+// Currently only checks if a square is enabled
+export const canMovePic = (enabled: boolean) => {
     // const [x, y] = picPosition[index];
     // const dx = toX - x;
     // const dy = toY - y;
     // return !(toX === x && toY === y);
-    return true;
+    return enabled;
 };
