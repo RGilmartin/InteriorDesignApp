@@ -1,9 +1,9 @@
-import React from "react";
-import { useDrop } from "react-dnd";
+import React, { useState } from "react";
+import { DragObjectWithType, useDrop } from "react-dnd";
 import { Item, ItemTypes } from "../constants";
 import { canMovePic, movePic } from "../game";
 import Overlay from "../Overlay";
-import Square from "./Square";
+import Square from "../Square";
 
 type BoardSquareProps = {
     x: number;
@@ -12,12 +12,14 @@ type BoardSquareProps = {
 };
 
 const BoardSquare: React.FC<BoardSquareProps> = (props) => {
-    const { x, y, item, children } = props;
-    const black = false; /*(x + y) % 2 === 1;*/
+    const { x, y, children } = props;
+    const [enabled, setEnabled] = useState(true);
     const [{ isOver, canDrop }, drop] = useDrop({
         accept: ItemTypes.PIC,
-        canDrop: () => canMovePic(),
-        drop: () => movePic(x, y, item),
+        canDrop: () => {
+            return canMovePic(enabled);
+        },
+        drop: (it: DragObjectWithType) => movePic(x, y, it),
         collect: (monitor) => ({
             isOver: !!monitor.isOver(),
             canDrop: !!monitor.canDrop()
@@ -26,10 +28,11 @@ const BoardSquare: React.FC<BoardSquareProps> = (props) => {
 
     return (
         <div
+            onDoubleClick={() => setEnabled(!enabled)}
             ref={drop}
             style={{ position: "relative", width: "100%", height: "100%" }}
         >
-            <Square black={black}>{children}</Square>
+            <Square black={!enabled}>{children}</Square>
             {isOver && !canDrop && <Overlay color="red" />}
             {!isOver && canDrop && <Overlay color="yellow" />}
             {isOver && canDrop && <Overlay color="green" />}
