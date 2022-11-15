@@ -10,10 +10,14 @@ observe((items: Item[]) => {
     ReactDOM.render(
         <>
             <div className="row-top">
-                Alejandro Silva, Mbiet Uko, Ryan Gilmartin
+                <img src="https://www.tutorialspoint.com/html/images/test.png"></img>
+                UD Interior Designer
             </div>
             <div className="row">
-                <div className="column-left">Furniture</div>
+                <div className="column-left">
+                    Furniture
+                    <img src="https://www.example.com/images/dinosaur.jpg"></img>
+                </div>
                 <div className="column-right">
                     <React.StrictMode>
                         <div
