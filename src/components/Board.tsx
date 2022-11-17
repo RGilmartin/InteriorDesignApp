@@ -26,8 +26,7 @@ const renderSquare = (i: number, j: number, items: Item[]) => {
             key={i}
             style={{
                 width: "50px",
-                height: "50px",
-                border: "1px solid black"
+                height: "50px"
             }}
         >
             <BoardSquare x={x} y={y} item={tItem as Item}>
