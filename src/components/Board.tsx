@@ -1,11 +1,11 @@
 import update from "immutability-helper";
 import React, { CSSProperties, useCallback, useState } from "react";
-import { DndProvider, useDrop, useDrag, XYCoord } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import BoardSquare from "./BoardSquare";
+import { useDrop, XYCoord } from "react-dnd";
+// import { HTML5Backend } from "react-dnd-html5-backend";
+// import BoardSquare from "./BoardSquare";
 import "../board.css";
-import { Item, ItemTypes } from "../constants";
-import ItemComp from "../Item";
+import { ItemTypes } from "../constants";
+// import ItemComp from "../Item";
 import { Furniture } from "../furniture";
 
 // // Should eventually pass in the object to render instead of just x and y coordinates
@@ -75,8 +75,7 @@ const Board: React.FC = () => {
     const [, drop] = useDrop(
         () => ({
             accept: ItemTypes.PIC,
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            drop(item: DragItem, monitor: any) {
+            drop(item: DragItem, monitor) {
                 const delta =
                     monitor.getDifferenceFromInitialOffset() as XYCoord;
                 const left = Math.round(item.left + delta.x);
@@ -89,8 +88,8 @@ const Board: React.FC = () => {
     );
 
     const styles: CSSProperties = {
-        width: "50vh",
-        height: "50vh",
+        width: "70vh",
+        height: "70vh",
         border: "1px solid black",
         position: "relative"
     };
