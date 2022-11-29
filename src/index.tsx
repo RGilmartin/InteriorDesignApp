@@ -5,6 +5,8 @@ import "./index.css";
 import { observe } from "./game";
 import reportWebVitals from "./reportWebVitals";
 import { Item } from "./constants";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 observe((items: Item[]) => {
     ReactDOM.render(
@@ -26,7 +28,9 @@ observe((items: Item[]) => {
                                 height: "80vh"
                             }}
                         >
-                            <Board items={items} />
+                            <DndProvider backend={HTML5Backend}>
+                                <Board />
+                            </DndProvider>
                         </div>
                     </React.StrictMode>
                 </div>
