@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/InteriorDesignApp/static/css/main.949f8eb4.css",
-    "main.js": "/InteriorDesignApp/static/js/main.7d58dd00.js",
-    "static/js/787.4ef7427d.chunk.js": "/InteriorDesignApp/static/js/787.4ef7427d.chunk.js",
-    "static/media/bosun_tally.jpg": "/InteriorDesignApp/static/media/bosun_tally.efd13eb681079a6cc65d.jpg",
-    "index.html": "/InteriorDesignApp/index.html",
-    "main.949f8eb4.css.map": "/InteriorDesignApp/static/css/main.949f8eb4.css.map",
-    "main.7d58dd00.js.map": "/InteriorDesignApp/static/js/main.7d58dd00.js.map",
-    "787.4ef7427d.chunk.js.map": "/InteriorDesignApp/static/js/787.4ef7427d.chunk.js.map"
+    "main.css": "/homepage/static/css/main.949f8eb4.css",
+    "main.js": "/homepage/static/js/main.c61363b4.js",
+    "static/js/787.4ef7427d.chunk.js": "/homepage/static/js/787.4ef7427d.chunk.js",
+    "index.html": "/homepage/index.html",
+    "main.949f8eb4.css.map": "/homepage/static/css/main.949f8eb4.css.map",
+    "main.c61363b4.js.map": "/homepage/static/js/main.c61363b4.js.map",
+    "787.4ef7427d.chunk.js.map": "/homepage/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.949f8eb4.css",
-    "static/js/main.7d58dd00.js"
+    "static/js/main.c61363b4.js"
   ]
 }
