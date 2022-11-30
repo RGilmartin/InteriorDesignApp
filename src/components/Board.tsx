@@ -75,7 +75,8 @@ const Board: React.FC = () => {
     const [, drop] = useDrop(
         () => ({
             accept: ItemTypes.PIC,
-            drop(item: DragItem, monitor) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            drop(item: DragItem, monitor: any) {
                 const delta =
                     monitor.getDifferenceFromInitialOffset() as XYCoord;
                 const left = Math.round(item.left + delta.x);
