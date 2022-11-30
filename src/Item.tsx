@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
-import { useDrag } from "react-dnd";
-import { Item, ItemTypes } from "./constants";
+import { Item } from "./constants";
 
 type ItemProps = { item: Item };
 
