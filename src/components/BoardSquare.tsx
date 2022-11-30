@@ -1,8 +1,5 @@
-import React, { useState } from "react";
-import { Item, ItemTypes } from "../constants";
-import { canMovePic, movePic } from "../game";
-import Overlay from "../Overlay";
-import Square from "../Square";
+import React from "react";
+import { Item } from "../constants";
 
 type BoardSquareProps = {
     x: number;
