@@ -13,7 +13,7 @@ const style: CSSProperties = {
 };
 
 export interface BoxProps {
-    id: any;
+    id: unknown;
     left: number;
     top: number;
     children?: ReactNode;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Item } from "./constants";
 
 // List of items
@@ -41,7 +42,7 @@ export const observe = (o: any) => {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const movePic = (toX: number, toY: number, nItem: any) => {
+export const movePic = (_toX: number, _toY: number, _nItem: unknown) => {
     // // nItem is an object that looks like: {type: *type defined by ItemType in constants.ts*, item: Item}
     // // Finding the index of the item passed in parameter in array of items
     // const tItemIndex = items.findIndex((i) => {
