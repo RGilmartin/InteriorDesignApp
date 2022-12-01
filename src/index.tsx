@@ -6,18 +6,17 @@ import { observe } from "./game";
 import reportWebVitals from "./reportWebVitals";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import ColorButtons from "./Objects";
 
 observe(() => {
     ReactDOM.render(
         <>
-            <div className="row-top">
-                <img src="https://www.tutorialspoint.com/html/images/test.png"></img>
-                UD Interior Designer
-            </div>
+            <div className="row-top">UD Interior Designer</div>
             <div className="row">
                 <div className="column-left">
-                    Furniture
-                    <img src="https://www.example.com/images/dinosaur.jpg"></img>
+                    <div>
+                        <ColorButtons></ColorButtons>
+                    </div>
                 </div>
                 <div className="column-right">
                     <React.StrictMode>
