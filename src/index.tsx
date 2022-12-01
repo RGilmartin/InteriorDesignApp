@@ -6,6 +6,8 @@ import { observe } from "./game";
 import reportWebVitals from "./reportWebVitals";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import FurnitureItems from "./furnitureItems";
+import ItemOverView from "./components/ItemOverview";
 
 observe(() => {
     ReactDOM.render(
@@ -18,6 +20,11 @@ observe(() => {
                 <div className="column-left">
                     Furniture
                     <img src="https://www.example.com/images/dinosaur.jpg"></img>
+                    {FurnitureItems.map((item, key) => {
+                        return (
+                            <ItemOverView key={key} item={item}></ItemOverView>
+                        );
+                    })}
                 </div>
                 <div className="column-right">
                     <React.StrictMode>

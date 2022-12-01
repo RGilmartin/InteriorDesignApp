@@ -3,24 +3,24 @@ import { Item } from "./constants";
 
 // List of items
 const items: Item[] = [
-    {
-        position: [0, 0],
-        height: 5,
-        width: 1,
-        image: [""]
-    },
-    {
-        position: [0, 5],
-        height: 5,
-        width: 1,
-        image: [""]
-    },
-    {
-        position: [12, 0],
-        height: 5,
-        width: 1,
-        image: [""]
-    }
+    // {
+    //     position: [0, 0],
+    //     height: 5,
+    //     width: 1,
+    //     image: [""]
+    // },
+    // {
+    //     position: [0, 5],
+    //     height: 5,
+    //     width: 1,
+    //     image: [""]
+    // },
+    // {
+    //     position: [12, 0],
+    //     height: 5,
+    //     width: 1,
+    //     image: [""]
+    // }
 ];
 
 // Probably needs a function to check if item is in list and add to list if not
