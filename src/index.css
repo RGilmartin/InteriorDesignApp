@@ -52,3 +52,12 @@ code {
     font-size: calc(10px + 2vmin);
     color: white;
 }
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.button-o {
+    width: "100px";
+    height: "30px";
+}

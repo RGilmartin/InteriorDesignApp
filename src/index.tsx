@@ -4,19 +4,19 @@ import Board from "./components/Board";
 import "./index.css";
 import { observe } from "./game";
 import reportWebVitals from "./reportWebVitals";
-import { Item } from "./constants";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import ColorButtons from "./Objects";
 
-observe((items: Item[]) => {
+observe(() => {
     ReactDOM.render(
         <>
-            <div className="row-top">
-                <img src="https://www.tutorialspoint.com/html/images/test.png"></img>
-                UD Interior Designer
-            </div>
+            <div className="row-top">UD Interior Designer</div>
             <div className="row">
                 <div className="column-left">
-                    Furniture
-                    <img src="https://www.example.com/images/dinosaur.jpg"></img>
+                    <div>
+                        <ColorButtons></ColorButtons>
+                    </div>
                 </div>
                 <div className="column-right">
                     <React.StrictMode>
@@ -26,7 +26,9 @@ observe((items: Item[]) => {
                                 height: "80vh"
                             }}
                         >
-                            <Board items={items} />
+                            <DndProvider backend={HTML5Backend}>
+                                <Board items={[]} />
+                            </DndProvider>
                         </div>
                     </React.StrictMode>
                 </div>
