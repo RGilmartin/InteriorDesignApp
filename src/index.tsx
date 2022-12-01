@@ -4,47 +4,20 @@ import Board from "./components/Board";
 import "./index.css";
 import { observe } from "./game";
 import reportWebVitals from "./reportWebVitals";
-import { Item } from "./constants";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
-observe((items: Item[]) => {
-    const [selectedRadioBtn, setSelectedBtn] = React.useState("radio1");
-
-    const isRadioSelected = (value: string): boolean =>
-        selectedRadioBtn === value;
-
-    const handleRadioClick = (e: React.ChangeEvent<HTMLInputElement>): void =>
-        setSelectedBtn(e.currentTarget.value);
+observe(() => {
     ReactDOM.render(
         <>
             <div className="row-top">
-                <img src="images/udmonogram.jpg"></img>
+                <img src="https://www.tutorialspoint.com/html/images/test.png"></img>
                 UD Interior Designer
             </div>
             <div className="row">
                 <div className="column-left">
                     Furniture
                     <img src="https://www.example.com/images/dinosaur.jpg"></img>
-                    <input
-                        type="radio"
-                        name="radio-button"
-                        value="radio1"
-                        checked={isRadioSelected("radio1")}
-                        onChange={handleRadioClick}
-                    />
-                    <input
-                        type="radio"
-                        name="radio-button"
-                        value="radio2"
-                        checked={isRadioSelected("radio2")}
-                        onChange={handleRadioClick}
-                    />
-                    <input
-                        type="radio"
-                        name="radio-button"
-                        value="radio3"
-                        checked={isRadioSelected("radio33")}
-                        onChange={handleRadioClick}
-                    />
                 </div>
                 <div className="column-right">
                     <React.StrictMode>
@@ -54,7 +27,9 @@ observe((items: Item[]) => {
                                 height: "80vh"
                             }}
                         >
-                            <Board items={items} />
+                            <DndProvider backend={HTML5Backend}>
+                                <Board />
+                            </DndProvider>
                         </div>
                     </React.StrictMode>
                 </div>
