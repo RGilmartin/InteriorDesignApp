@@ -19,7 +19,6 @@ observe(() => {
             <div className="row">
                 <div className="column-left">
                     Furniture
-                    <img src="https://www.example.com/images/dinosaur.jpg"></img>
                     {FurnitureItems.map((item, key) => {
                         return (
                             <ItemOverView key={key} item={item}></ItemOverView>
