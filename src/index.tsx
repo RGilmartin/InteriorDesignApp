@@ -6,24 +6,17 @@ import { observe } from "./game";
 import reportWebVitals from "./reportWebVitals";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import FurnitureItems from "./furnitureItems";
-import ItemOverView from "./components/ItemOverview";
+import ColorButtons from "./Objects";
 
 observe(() => {
     ReactDOM.render(
         <>
-            <div className="row-top">
-                <img src="https://www.tutorialspoint.com/html/images/test.png"></img>
-                UD Interior Designer
-            </div>
+            <div className="row-top">UD Interior Designer</div>
             <div className="row">
                 <div className="column-left">
-                    Furniture
-                    {FurnitureItems.map((item, key) => {
-                        return (
-                            <ItemOverView key={key} item={item}></ItemOverView>
-                        );
-                    })}
+                    <div>
+                        <ColorButtons></ColorButtons>
+                    </div>
                 </div>
                 <div className="column-right">
                     <React.StrictMode>
@@ -34,7 +27,7 @@ observe(() => {
                             }}
                         >
                             <DndProvider backend={HTML5Backend}>
-                                <Board />
+                                <Board items={[]} />
                             </DndProvider>
                         </div>
                     </React.StrictMode>
