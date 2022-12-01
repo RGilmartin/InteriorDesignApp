@@ -27,7 +27,7 @@ observe(() => {
                             }}
                         >
                             <DndProvider backend={HTML5Backend}>
-                                <Board items={[]} />
+                                <Board />
                             </DndProvider>
                         </div>
                     </React.StrictMode>
