@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { CSSProperties, useCallback, useState } from "react";
 import Button from "react-bootstrap/Button";
 import update from "immutability-helper";
@@ -27,81 +29,28 @@ const Objects = [
     }
 ];
 function ColorButtons() {
-    const [color, setColor] = useState("#2550a7");
+    // const [color, setColor] = useState("#2550a7");
     const [kitchen, setKitchen] = useState<boolean>(false);
     const [furniture, setFurniture] = useState<boolean>(false);
     const [bath, setBath] = useState<boolean>(false);
-    const [height, setHeight] = useState("5");
-    const [width, setWidth] = useState("5");
+    // const [height, setHeight] = useState("5");
+    // const [width, setWidth] = useState("5");
 
-    const FURNITURE: string[] = ["sofa", "chair", "table", "bookshelf"];
-    const [image, setImage] = useState<string>(FURNITURE[0]);
-    const url = "../images-${image}.jpg";
+    // const FURNITURE: string[] = ["sofa", "chair", "table", "bookshelf"];
+    // const [image, setImage] = useState<string>(FURNITURE[0]);
+    // const url = "../images-${image}.jpg";
 
-    function flipVisibilityKitchen(): void {
-        setKitchen(!kitchen);
-    }
-    function flipVisibilityFurniture(): void {
-        setFurniture(!furniture);
-    }
-    function flipVisibilityBath(): void {
-        setBath(!bath);
-    }
+    // function flipVisibilityKitchen(): void {
+    //     setKitchen(!kitchen);
+    // }
+    // function flipVisibilityFurniture(): void {
+    //     setFurniture(!furniture);
+    // }
+    // function flipVisibilityBath(): void {
+    //     setBath(!bath);
+    // }
     return (
         <>
-            <div
-                style={{
-                    backgroundColor: color,
-                    height: "300px",
-                    width: "415px",
-                    float: "right",
-                    transition: "ease all 500ms"
-                }}
-            >
-                <select
-                    value={width}
-                    onChange={(e) => {
-                        setWidth(e.target.value);
-                    }}
-                >
-                    <option value="5">Width: 5</option>
-                    <option value="10">Width: 10</option>
-                    <option value="15">Width: 15</option>
-                </select>
-                <select
-                    value={height}
-                    onChange={(e) => {
-                        setHeight(e.target.value);
-                    }}
-                >
-                    <option value="5">Height: 5</option>
-                    <option value="10">Height: 10</option>
-                    <option value="15">Height: 15</option>
-                </select>
-                <p>
-                    Dimensions: {width} x {height}
-                </p>
-                <div
-                    style={{
-                        display: "center",
-                        transition: "ease all 500ms"
-                    }}
-                >
-                    <img
-                        src={require(".//images/sofa.jpg")}
-                        alt="Sofa"
-                        width="175"
-                        height="175"
-                    ></img>
-                </div>
-            </div>
-            <CirclePicker
-                color={color}
-                onChangeComplete={(color) => {
-                    setColor(color.hex);
-                }}
-                className="center"
-            />
             <ItemList></ItemList>
         </>
     );
@@ -114,18 +63,21 @@ const ItemList: React.FC = () => {
             left: number;
             image: string;
             isInList: boolean;
+            itemName?: string;
         };
     }>({
         0: {
-            top: 20,
-            left: 100,
+            top: 0,
+            left: 0,
             isInList: true,
+            itemName: "chair 1",
             image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fc%2FR%2Ff%2FK%2Fh%2Fr%2Fcinema-chair-top-view-hi.png&f=1&nofb=1&ipt=9afd6ea0c875c63ed38f07c08fd14264ce7eb2cefcb36b7d0684f1b2102c9545&ipo=images"
         },
         1: {
-            top: 180,
-            left: 20,
+            top: 0,
+            left: 0,
             isInList: true,
+            itemName: "chair 2",
             image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fc%2FR%2Ff%2FK%2Fh%2Fr%2Fcinema-chair-top-view-hi.png&f=1&nofb=1&ipt=9afd6ea0c875c63ed38f07c08fd14264ce7eb2cefcb36b7d0684f1b2102c9545&ipo=images"
         }
     });
@@ -146,7 +98,6 @@ const ItemList: React.FC = () => {
     const [, drop] = useDrop(
         () => ({
             accept: ItemTypes.PIC,
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
             drop(item: DragItem, monitor: any) {
                 return undefined;
             }
@@ -155,19 +106,22 @@ const ItemList: React.FC = () => {
     );
 
     const styles: CSSProperties = {
-        width: "30vh",
-        height: "50vh",
-        border: "1px solid black",
-        position: "relative"
+        width: "100%",
+        height: "100%",
+        position: "relative",
+        textAlign: "center"
     };
     return (
         <div ref={drop} style={styles}>
             {Object.keys(furniture).map((key) => {
-                const { left, top, image, isInList } = furniture[key] as {
+                const { left, top, image, itemName, isInList } = furniture[
+                    key
+                ] as {
                     top: number;
                     left: number;
                     image: string;
                     isInList: boolean;
+                    itemName?: string;
                 };
                 return (
                     <Furniture
@@ -176,6 +130,7 @@ const ItemList: React.FC = () => {
                         left={left}
                         top={top}
                         isInList={isInList}
+                        itemName={itemName}
                     >
                         <img src={image} height="50px" />
                     </Furniture>
