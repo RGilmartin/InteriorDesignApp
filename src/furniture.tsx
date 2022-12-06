@@ -16,14 +16,21 @@ export interface BoxProps {
     id: unknown;
     left: number;
     top: number;
+    isInList: boolean;
     children?: ReactNode;
 }
 
-export const Furniture: FC<BoxProps> = ({ id, left, top, children }) => {
+export const Furniture: FC<BoxProps> = ({
+    id,
+    left,
+    top,
+    isInList,
+    children
+}) => {
     const [{ isDragging }, drag] = useDrag(
         () => ({
             type: ItemTypes.PIC,
-            item: { id, left, top },
+            item: { id, left, top, isInList },
             collect: (monitor) => ({
                 isDragging: monitor.isDragging()
             })
