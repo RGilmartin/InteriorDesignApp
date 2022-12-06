@@ -5,6 +5,7 @@ export const ItemTypes = {
 export type RoomType = "kitchen" | "bedroom" | "living room";
 
 export type Item = {
+    name: string;
     position: [number, number];
     height: number;
     width: number;
