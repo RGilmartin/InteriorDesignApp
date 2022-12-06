@@ -11,8 +11,6 @@ import { ItemTypes } from "../constants";
 import { Furniture } from "../furniture";
 
 const Board: React.FC = () => {
-    const [id, setId] = useState<number>(5);
-
     const [furniture, setFurniture] = useState<{
         [key: string]: {
             top: number;
