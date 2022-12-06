@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { CSSProperties, useCallback, useState } from "react";
 import Button from "react-bootstrap/Button";
 import update from "immutability-helper";
@@ -27,26 +29,26 @@ const Objects = [
     }
 ];
 function ColorButtons() {
-    const [color, setColor] = useState("#2550a7");
+    // const [color, setColor] = useState("#2550a7");
     const [kitchen, setKitchen] = useState<boolean>(false);
     const [furniture, setFurniture] = useState<boolean>(false);
     const [bath, setBath] = useState<boolean>(false);
-    const [height, setHeight] = useState("5");
-    const [width, setWidth] = useState("5");
+    // const [height, setHeight] = useState("5");
+    // const [width, setWidth] = useState("5");
 
-    const FURNITURE: string[] = ["sofa", "chair", "table", "bookshelf"];
-    const [image, setImage] = useState<string>(FURNITURE[0]);
-    const url = "../images-${image}.jpg";
+    // const FURNITURE: string[] = ["sofa", "chair", "table", "bookshelf"];
+    // const [image, setImage] = useState<string>(FURNITURE[0]);
+    // const url = "../images-${image}.jpg";
 
-    function flipVisibilityKitchen(): void {
-        setKitchen(!kitchen);
-    }
-    function flipVisibilityFurniture(): void {
-        setFurniture(!furniture);
-    }
-    function flipVisibilityBath(): void {
-        setBath(!bath);
-    }
+    // function flipVisibilityKitchen(): void {
+    //     setKitchen(!kitchen);
+    // }
+    // function flipVisibilityFurniture(): void {
+    //     setFurniture(!furniture);
+    // }
+    // function flipVisibilityBath(): void {
+    //     setBath(!bath);
+    // }
     return (
         <>
             <ItemList></ItemList>
@@ -96,7 +98,6 @@ const ItemList: React.FC = () => {
     const [, drop] = useDrop(
         () => ({
             accept: ItemTypes.PIC,
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
             drop(item: DragItem, monitor: any) {
                 return undefined;
             }
