@@ -4,7 +4,7 @@ import { useDrag } from "react-dnd";
 
 import { ItemTypes } from "./constants";
 
-const style: CSSProperties = {
+const roomStyle: CSSProperties = {
     position: "absolute",
     border: "1px dashed gray",
     backgroundColor: "white",
@@ -12,18 +12,39 @@ const style: CSSProperties = {
     cursor: "move"
 };
 
+const listStyle: CSSProperties = {
+    position: "relative",
+    height: "100px",
+    width: "300px",
+    backgroundColor: "#fdfdfd",
+    color: "black",
+    borderRadius: "5px",
+    margin: "10px",
+    display: "inline-block",
+    textAlign: "center"
+};
+
 export interface BoxProps {
     id: unknown;
     left: number;
     top: number;
+    isInList: boolean;
+    itemName?: string;
     children?: ReactNode;
 }
 
-export const Furniture: FC<BoxProps> = ({ id, left, top, children }) => {
+export const Furniture: FC<BoxProps> = ({
+    id,
+    left,
+    top,
+    isInList,
+    itemName,
+    children
+}) => {
     const [{ isDragging }, drag] = useDrag(
         () => ({
             type: ItemTypes.PIC,
-            item: { id, left, top },
+            item: { id, left, top, isInList },
             collect: (monitor) => ({
                 isDragging: monitor.isDragging()
             })
@@ -34,14 +55,31 @@ export const Furniture: FC<BoxProps> = ({ id, left, top, children }) => {
     if (isDragging) {
         return <div ref={drag} />;
     }
-    return (
-        <div
-            className="box"
-            ref={drag}
-            style={{ ...style, left, top }}
-            data-testid="box"
-        >
-            {children}
-        </div>
-    );
+
+    if (isInList) {
+        return (
+            <div
+                className="box"
+                ref={drag}
+                style={{ ...listStyle }}
+                data-testid="box"
+            >
+                <div style={{ width: "30%" }}>{children}</div>
+                <div style={{ width: "70%" }}>
+                    <h3>{itemName}</h3>
+                </div>
+            </div>
+        );
+    } else {
+        return (
+            <div
+                className="box"
+                ref={drag}
+                style={{ ...roomStyle, left, top }}
+                data-testid="box"
+            >
+                {children}
+            </div>
+        );
+    }
 };
