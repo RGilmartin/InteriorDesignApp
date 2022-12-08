@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import update from "immutability-helper";
 import React, { CSSProperties, useCallback, useState } from "react";
+import Button from "react-bootstrap/esm/Button";
 import { useDrop, XYCoord } from "react-dnd";
 import uuid from "react-uuid";
 // import { HTML5Backend } from "react-dnd-html5-backend";
@@ -49,9 +50,13 @@ const Board: React.FC = () => {
         [furniture, setFurniture]
     );
 
-    const removeFurniture = useCallback(() => {
-        const newFurnObj = furniture;
+    /*    const removeFurniture = useCallback(() => {
+        const newFurnObj = { furniture };
         console.log(Object.keys(newFurnObj));
+    }, [furniture, setFurniture]);
+*/
+    const removeFurniture = useCallback(() => {
+        setFurniture(update(furniture, { $set: {} }));
     }, [furniture, setFurniture]);
 
     const moveFurniture = useCallback(
@@ -124,6 +129,7 @@ const Board: React.FC = () => {
                         ></input>
                     </label>
                 </form>
+                <Button onClick={() => removeFurniture()}>Clear Board</Button>
             </div>
             <div
                 ref={drop}
@@ -148,7 +154,7 @@ const Board: React.FC = () => {
                             top={top}
                             isInList={isInList}
                         >
-                            <div onDoubleClick={removeFurniture}>
+                            <div onDoubleClick={() => removeFurniture}>
                                 <img src={image} height="50px" />
                             </div>
                         </Furniture>
