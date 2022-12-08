@@ -14,10 +14,7 @@
         "immutability-helper": "^3.1.1",
         "react": "^18.2.0",
         "react-bootstrap": "^2.6.0",
-<<<<<<< HEAD
-=======
         "react-color": "^2.19.3",
->>>>>>> 73cf8219db0a15dc8f9234aed3c4135834f9c065
         "react-dnd": "^16.0.1",
         "react-dnd-html5-backend": "^16.0.1",
         "react-dom": "^18.2.0",
