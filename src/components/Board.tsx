@@ -131,7 +131,7 @@ const Board: React.FC = () => {
                         ></input>
                     </label>
                 </form>
-                <Button onClick={() => removeFurniture()}>Clear Board</Button>
+                <Button onClick={() => removeFurniture()}>Clear Room</Button>
             </div>
             <div
                 ref={drop}
