@@ -8,31 +8,21 @@ import { useDrop, XYCoord } from "react-dnd";
 import { DragItem } from "./components/Board";
 import { ItemTypes } from "./constants";
 import { Furniture } from "./furniture";
-const Objects = [
-    {
-        object: "Sofa",
-        id: 1,
-        height: 5,
-        width: 10,
-        color: "black",
-        type: "chair",
-        image: "images/sofa.jpg"
-    },
-    {
-        object: "Chair",
-        id: 2,
-        height: 5,
-        width: 5,
-        color: "blue",
-        type: "chair",
-        image: "images/chair.jpg"
-    }
-];
+import Sofa from "./components/images/sofa.jpg";
+import Chair from "./components/images/chair.jpg";
+import BookShelf from "./components/images/bookshelf.jpg";
+import Table from "./components/images/table.jpg";
+import Island from "./components/images/island.jpg";
+import Fridge from "./components/images/fridge.jpg";
+import Counter from "./components/images/counter.jpg";
+import Cabinet from "./components/images/cabinet.jpg";
+import Toilet from "./components/images/toilet.jpg";
+import BathSink from "./components/images/bathsink.jpg";
+import Shower from "./components/images/shower.jpg";
+import Sink from "./components/images/sink.jpg";
+
 function ColorButtons() {
     // const [color, setColor] = useState("#2550a7");
-    const [kitchen, setKitchen] = useState<boolean>(false);
-    const [furniture, setFurniture] = useState<boolean>(false);
-    const [bath, setBath] = useState<boolean>(false);
     // const [height, setHeight] = useState("5");
     // const [width, setWidth] = useState("5");
 
@@ -70,15 +60,22 @@ const ItemList: React.FC = () => {
             top: 0,
             left: 0,
             isInList: true,
-            itemName: "chair 1",
-            image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fc%2FR%2Ff%2FK%2Fh%2Fr%2Fcinema-chair-top-view-hi.png&f=1&nofb=1&ipt=9afd6ea0c875c63ed38f07c08fd14264ce7eb2cefcb36b7d0684f1b2102c9545&ipo=images"
+            itemName: "Living Room",
+            image: Sofa
         },
         1: {
             top: 0,
             left: 0,
             isInList: true,
-            itemName: "chair 2",
-            image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fc%2FR%2Ff%2FK%2Fh%2Fr%2Fcinema-chair-top-view-hi.png&f=1&nofb=1&ipt=9afd6ea0c875c63ed38f07c08fd14264ce7eb2cefcb36b7d0684f1b2102c9545&ipo=images"
+            itemName: "Kitchen",
+            image: Fridge
+        },
+        2: {
+            top: 0,
+            left: 0,
+            isInList: true,
+            itemName: "BathRoom",
+            image: Toilet
         }
     });
 
@@ -105,6 +102,117 @@ const ItemList: React.FC = () => {
         [moveFurniture]
     );
 
+    const setLivingRoom = useCallback(() => {
+        setFurniture(
+            update(furniture, {
+                $set: {
+                    0: {
+                        top: 0,
+                        left: 0,
+                        isInList: true,
+                        itemName: "Sofa",
+                        image: Sofa
+                    },
+                    1: {
+                        top: 0,
+                        left: 0,
+                        isInList: true,
+                        itemName: "Chair",
+                        image: Chair
+                    },
+                    2: {
+                        top: 0,
+                        left: 0,
+                        isInList: true,
+                        itemName: "BookShelf",
+                        image: BookShelf
+                    },
+                    3: {
+                        top: 0,
+                        left: 0,
+                        isInList: true,
+                        itemName: "Table",
+                        image: Table
+                    }
+                }
+            })
+        );
+    }, [furniture, setFurniture]);
+
+    const setKitchen = useCallback(() => {
+        setFurniture(
+            update(furniture, {
+                $set: {
+                    0: {
+                        top: 0,
+                        left: 0,
+                        isInList: true,
+                        itemName: "Island",
+                        image: Island
+                    },
+                    1: {
+                        top: 0,
+                        left: 0,
+                        isInList: true,
+                        itemName: "Fridge",
+                        image: Fridge
+                    },
+                    2: {
+                        top: 0,
+                        left: 0,
+                        isInList: true,
+                        itemName: "Counter",
+                        image: Counter
+                    },
+                    3: {
+                        top: 0,
+                        left: 0,
+                        isInList: true,
+                        itemName: "Sink",
+                        image: Sink
+                    }
+                }
+            })
+        );
+    }, [furniture, setFurniture]);
+
+    const setBath = useCallback(() => {
+        setFurniture(
+            update(furniture, {
+                $set: {
+                    0: {
+                        top: 0,
+                        left: 0,
+                        isInList: true,
+                        itemName: "Shower",
+                        image: Shower
+                    },
+                    1: {
+                        top: 0,
+                        left: 0,
+                        isInList: true,
+                        itemName: "Toilet",
+                        image: Toilet
+                    },
+                    2: {
+                        top: 0,
+                        left: 0,
+                        isInList: true,
+                        itemName: "Bath Sink",
+                        image: BathSink
+                    },
+                    3: {
+                        top: 0,
+                        left: 0,
+                        isInList: true,
+                        itemName: "Cabinet",
+                        image: Cabinet
+                    }
+                }
+            })
+        );
+    }, [furniture, setFurniture]);
+
     const styles: CSSProperties = {
         width: "100%",
         height: "100%",
@@ -113,6 +221,12 @@ const ItemList: React.FC = () => {
     };
     return (
         <div ref={drop} style={styles}>
+            <h4>
+                Type:{" "}
+                <Button onClick={() => setLivingRoom()}>Living Room</Button>
+                <Button onClick={() => setKitchen()}>Kitchen</Button>
+                <Button onClick={() => setBath()}>Bathroom</Button>
+            </h4>
             {Object.keys(furniture).map((key) => {
                 const { left, top, image, itemName, isInList } = furniture[
                     key
@@ -124,16 +238,18 @@ const ItemList: React.FC = () => {
                     itemName?: string;
                 };
                 return (
-                    <Furniture
-                        key={key}
-                        id={key}
-                        left={left}
-                        top={top}
-                        isInList={isInList}
-                        itemName={itemName}
-                    >
-                        <img src={image} height="50px" />
-                    </Furniture>
+                    <>
+                        <Furniture
+                            key={key}
+                            id={key}
+                            left={left}
+                            top={top}
+                            isInList={isInList}
+                            itemName={itemName}
+                        >
+                            <img src={image} height="50px" />
+                        </Furniture>
+                    </>
                 );
             })}
         </div>

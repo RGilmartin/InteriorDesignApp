@@ -10,6 +10,7 @@ import "../board.css";
 import { ItemTypes } from "../constants";
 // import ItemComp from "../Item";
 import { Furniture } from "../furniture";
+import Sofa from "./images/sofa.jpg";
 
 const Board: React.FC = () => {
     const [furniture, setFurniture] = useState<{
@@ -42,7 +43,8 @@ const Board: React.FC = () => {
                     top: item.top,
                     left: item.left,
                     isInList: false,
-                    image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fc%2FR%2Ff%2FK%2Fh%2Fr%2Fcinema-chair-top-view-hi.png&f=1&nofb=1&ipt=9afd6ea0c875c63ed38f07c08fd14264ce7eb2cefcb36b7d0684f1b2102c9545&ipo=images"
+                    image: Sofa
+                    //image: require(`./images/${item.itemName}.jpg`)
                 }
             };
             setFurniture(update(furniture, { $set: newFurnObj }));
@@ -154,7 +156,7 @@ const Board: React.FC = () => {
                             top={top}
                             isInList={isInList}
                         >
-                            <div onDoubleClick={() => removeFurniture}>
+                            <div>
                                 <img src={image} height="50px" />
                             </div>
                         </Furniture>
@@ -171,6 +173,7 @@ export interface DragItem {
     top: number;
     left: number;
     isInList: boolean;
+    itemName: string;
 }
 
 export default Board;
