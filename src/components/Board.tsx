@@ -90,35 +90,71 @@ const Board: React.FC = () => {
     );
 
     const styles: CSSProperties = {
-        width: "70vh",
-        height: "70vh",
         border: "1px solid black",
         position: "relative"
     };
 
+    const [width, setWidth] = useState<number>(10);
+    const [length, setLength] = useState<number>(10);
+
     return (
-        <div ref={drop} style={styles}>
-            {Object.keys(furniture).map((key) => {
-                const { left, top, image, isInList } = furniture[key] as {
-                    top: number;
-                    left: number;
-                    image: string;
-                    isInList: boolean;
-                };
-                return (
-                    <Furniture
-                        key={key}
-                        id={key}
-                        left={left}
-                        top={top}
-                        isInList={isInList}
-                    >
-                        <div onDoubleClick={removeFurniture}>
-                            <img src={image} height="50px" />
-                        </div>
-                    </Furniture>
-                );
-            })}
+        <div>
+            <div style={{ margin: "10px" }}>
+                <form>
+                    <label>
+                        Room Length (ft):
+                        <input
+                            style={{
+                                width: "50px",
+                                margin: "0px 20px 0px 5px"
+                            }}
+                            type="number"
+                            value={length}
+                            onChange={(e) => setLength(+e.target.value)}
+                        ></input>
+                        Room Width (ft):
+                        <input
+                            style={{
+                                width: "50px",
+                                margin: "0px 20px 0px 5px"
+                            }}
+                            type="number"
+                            value={width}
+                            onChange={(e) => setWidth(+e.target.value)}
+                        ></input>
+                    </label>
+                </form>
+            </div>
+            <div
+                ref={drop}
+                style={{
+                    ...styles,
+                    width: 5 * width + "vh",
+                    height: 5 * length + "vh"
+                }}
+            >
+                {Object.keys(furniture).map((key) => {
+                    const { left, top, image, isInList } = furniture[key] as {
+                        top: number;
+                        left: number;
+                        image: string;
+                        isInList: boolean;
+                    };
+                    return (
+                        <Furniture
+                            key={key}
+                            id={key}
+                            left={left}
+                            top={top}
+                            isInList={isInList}
+                        >
+                            <div onDoubleClick={removeFurniture}>
+                                <img src={image} height="50px" />
+                            </div>
+                        </Furniture>
+                    );
+                })}
+            </div>
         </div>
     );
 };
