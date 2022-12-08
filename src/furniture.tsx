@@ -1,6 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
-import type { CSSProperties, FC, ReactNode } from "react";
+import { CSSProperties, FC, ReactNode, useState } from "react";
 import { useDrag } from "react-dnd";
+import Modal from "react-bootstrap/Modal";
 
 import { ItemTypes } from "./constants";
 
@@ -52,6 +53,12 @@ export const Furniture: FC<BoxProps> = ({
         [id, left, top]
     );
 
+    const [rotation, setRotation] = useState<number>(0);
+    const [showModal, setShowModal] = useState(false);
+
+    const handleClose = () => setShowModal(false);
+    const handleShow = () => setShowModal(true);
+
     if (isDragging) {
         return <div ref={drag} />;
     }
@@ -75,10 +82,44 @@ export const Furniture: FC<BoxProps> = ({
             <div
                 className="box"
                 ref={drag}
-                style={{ ...roomStyle, left, top }}
+                style={{
+                    ...roomStyle,
+                    left,
+                    top,
+                    rotate: rotation.toString() + "deg"
+                }}
                 data-testid="box"
             >
-                {children}
+                <div onClick={handleShow}>
+                    {children}
+                    <div
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                        }}
+                    >
+                        <Modal show={showModal} onHide={handleClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Furniture Settings</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <p>Rotation</p>
+                                <form>
+                                    <label>
+                                        Rotation:
+                                        <input
+                                            type="number"
+                                            value={rotation}
+                                            onChange={(n) => {
+                                                setRotation(+n.target.value);
+                                            }}
+                                        ></input>
+                                    </label>
+                                </form>
+                            </Modal.Body>
+                        </Modal>
+                    </div>
+                </div>
             </div>
         );
     }
