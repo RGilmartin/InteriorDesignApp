@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import ColorButtons from "./Objects";
+import FurnitureList from "./components/MapList";
 
 observe(() => {
     ReactDOM.render(
@@ -16,6 +17,7 @@ observe(() => {
                 <div className="column-left">
                     <div>
                         <ColorButtons></ColorButtons>
+                        <FurnitureList></FurnitureList>
                     </div>
                 </div>
                 <div className="column-right">

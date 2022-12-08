@@ -8,7 +8,19 @@ import uuid from "react-uuid";
 import "../board.css";
 import { ItemTypes } from "../constants";
 // import ItemComp from "../Item";
+import { Pieces } from "./PiecesInterface";
+
+//images
+import RedChairImage from "../images/chair.jpg";
+import SofaImage from "../images/sofa.jpg";
 import { Furniture } from "../furniture";
+
+interface BoardProps {
+    furnitureInRoomBoard: Pieces[];
+    moveFurniture: (id: string, top: number, left: number) => void;
+    addToRoomBoard: (item: Pieces, top: number, left: number) => void;
+    removeFromRoomBoard: (id: string) => void;
+}
 
 const Board: React.FC = () => {
     const [furniture, setFurniture] = useState<{
@@ -23,13 +35,19 @@ const Board: React.FC = () => {
             top: 20,
             left: 100,
             isInList: false,
-            image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fc%2FR%2Ff%2FK%2Fh%2Fr%2Fcinema-chair-top-view-hi.png&f=1&nofb=1&ipt=9afd6ea0c875c63ed38f07c08fd14264ce7eb2cefcb36b7d0684f1b2102c9545&ipo=images"
+            image: RedChairImage
         },
         "1": {
             top: 180,
             left: 20,
             isInList: false,
             image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fc%2FR%2Ff%2FK%2Fh%2Fr%2Fcinema-chair-top-view-hi.png&f=1&nofb=1&ipt=9afd6ea0c875c63ed38f07c08fd14264ce7eb2cefcb36b7d0684f1b2102c9545&ipo=images"
+        },
+        "2": {
+            top: 180,
+            left: 20,
+            isInList: false,
+            image: SofaImage
         }
     });
 
@@ -41,7 +59,7 @@ const Board: React.FC = () => {
                     top: item.top,
                     left: item.left,
                     isInList: false,
-                    image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fc%2FR%2Ff%2FK%2Fh%2Fr%2Fcinema-chair-top-view-hi.png&f=1&nofb=1&ipt=9afd6ea0c875c63ed38f07c08fd14264ce7eb2cefcb36b7d0684f1b2102c9545&ipo=images"
+                    image: RedChairImage
                 }
             };
             setFurniture(update(furniture, { $set: newFurnObj }));
