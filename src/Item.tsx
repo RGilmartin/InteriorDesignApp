@@ -3,7 +3,7 @@ import { Item } from "./constants";
 
 type ItemProps = { item: Item };
 
-const ItemComp: React.FC<ItemProps> = (props) => {
+const ItemComp: React.FC<ItemProps> = () => {
     // const { item } = props;
     // const [{ isDragging }, drag] = useDrag({
     //     item: { type: ItemTypes.PIC, item: item },

@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { CSSProperties, FC, ReactNode, useState } from "react";
+import { CSSProperties, FC, useState } from "react";
 import { useDrag } from "react-dnd";
 import Modal from "react-bootstrap/Modal";
 

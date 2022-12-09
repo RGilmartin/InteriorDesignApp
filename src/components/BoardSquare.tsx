@@ -7,7 +7,7 @@ type BoardSquareProps = {
     item: Item;
 };
 
-const BoardSquare: React.FC<BoardSquareProps> = (props) => {
+const BoardSquare: React.FC<BoardSquareProps> = () => {
     // const { x, y, children } = props;
     // const [enabled, setEnabled] = useState(true);
     // const [{ isOver, canDrop }, drop] = useDrop({
