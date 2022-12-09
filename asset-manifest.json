@@ -1,15 +1,21 @@
 {
   "files": {
-    "main.css": "/InteriorDesignApp/static/css/main.c036b2fa.css",
-    "main.js": "/InteriorDesignApp/static/js/main.80da9423.js",
+    "main.css": "/InteriorDesignApp/static/css/main.46a86eda.css",
+    "main.js": "/InteriorDesignApp/static/js/main.06138f59.js",
     "static/js/787.4ef7427d.chunk.js": "/InteriorDesignApp/static/js/787.4ef7427d.chunk.js",
+    "static/media/counter.jpg": "/InteriorDesignApp/static/media/counter.3e7cfd38234444abddd7.jpg",
+    "static/media/tv.jpg": "/InteriorDesignApp/static/media/tv.d03971e3b91b478937f0.jpg",
+    "static/media/nightTable.jpg": "/InteriorDesignApp/static/media/nightTable.ff36c244a2bb556c54b5.jpg",
+    "static/media/bathsink.jpg": "/InteriorDesignApp/static/media/bathsink.e2ea94934d0968711c10.jpg",
+    "static/media/toilet.jpg": "/InteriorDesignApp/static/media/toilet.06acc726b6ce7b8e39ef.jpg",
+    "static/media/tub.jpg": "/InteriorDesignApp/static/media/tub.b9969582d91864269a68.jpg",
     "index.html": "/InteriorDesignApp/index.html",
-    "main.c036b2fa.css.map": "/InteriorDesignApp/static/css/main.c036b2fa.css.map",
-    "main.80da9423.js.map": "/InteriorDesignApp/static/js/main.80da9423.js.map",
+    "main.46a86eda.css.map": "/InteriorDesignApp/static/css/main.46a86eda.css.map",
+    "main.06138f59.js.map": "/InteriorDesignApp/static/js/main.06138f59.js.map",
     "787.4ef7427d.chunk.js.map": "/InteriorDesignApp/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c036b2fa.css",
-    "static/js/main.80da9423.js"
+    "static/css/main.46a86eda.css",
+    "static/js/main.06138f59.js"
   ]
 }
