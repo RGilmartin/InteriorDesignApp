@@ -31,7 +31,6 @@ export interface BoxProps {
     top: number;
     isInList: boolean;
     itemName?: string;
-    children?: ReactNode;
     image: string;
 }
 
@@ -41,7 +40,6 @@ export const Furniture: FC<BoxProps> = ({
     top,
     isInList,
     itemName,
-    children,
     image
 }) => {
     const [{ isDragging }, drag] = useDrag(
