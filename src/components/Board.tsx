@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import update from "immutability-helper";
 import React, { CSSProperties, useCallback, useState } from "react";
+import { Col } from "react-bootstrap";
 import Button from "react-bootstrap/esm/Button";
 import { useDrop, XYCoord } from "react-dnd";
 import uuid from "react-uuid";
@@ -10,6 +11,8 @@ import "../board.css";
 import { ItemTypes } from "../constants";
 // import ItemComp from "../Item";
 import { Furniture } from "../furniture";
+import Sofa from "./images/sofa.jpg";
+import { SavedRoom } from "./savedroom";
 
 const Board: React.FC = () => {
     const [furniture, setFurniture] = useState<{
@@ -19,21 +22,9 @@ const Board: React.FC = () => {
             image: string;
             isInList: boolean;
         };
-    }>({
-        "0": {
-            top: 20,
-            left: 100,
-            isInList: false,
-            image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fc%2FR%2Ff%2FK%2Fh%2Fr%2Fcinema-chair-top-view-hi.png&f=1&nofb=1&ipt=9afd6ea0c875c63ed38f07c08fd14264ce7eb2cefcb36b7d0684f1b2102c9545&ipo=images"
-        },
-        "1": {
-            top: 180,
-            left: 20,
-            isInList: false,
-            image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fc%2FR%2Ff%2FK%2Fh%2Fr%2Fcinema-chair-top-view-hi.png&f=1&nofb=1&ipt=9afd6ea0c875c63ed38f07c08fd14264ce7eb2cefcb36b7d0684f1b2102c9545&ipo=images"
-        }
-    });
+    }>({});
 
+    //Add Furniture
     const AddFurniture = useCallback(
         (item: DragItem) => {
             const newFurnObj = {
@@ -42,7 +33,7 @@ const Board: React.FC = () => {
                     top: item.top,
                     left: item.left,
                     isInList: false,
-                    image: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fc%2FR%2Ff%2FK%2Fh%2Fr%2Fcinema-chair-top-view-hi.png&f=1&nofb=1&ipt=9afd6ea0c875c63ed38f07c08fd14264ce7eb2cefcb36b7d0684f1b2102c9545&ipo=images"
+                    image: require("./images/sofa.jpg")
                 }
             };
             setFurniture(update(furniture, { $set: newFurnObj }));
@@ -59,6 +50,24 @@ const Board: React.FC = () => {
         setFurniture(update(furniture, { $set: {} }));
     }, [furniture, setFurniture]);
 
+    //Saving a Room
+    const [savedRooms, setSavedRooms] = useState<SavedRoom[]>([]);
+    const createNewRoom = useCallback(() => {
+        const newSavedRoom: SavedRoom = {
+            id: savedRooms.length + 1,
+            furniture: { ...furniture }
+        };
+        const newSavedRooms = [...savedRooms, newSavedRoom];
+        setSavedRooms(newSavedRooms);
+        setFurniture(update(furniture, { $set: {} }));
+    }, [furniture, setFurniture]);
+
+    const switchRoom = (key: number) => {
+        const selected = savedRooms[key - 1];
+        setFurniture(selected.furniture);
+    };
+
+    //Moving Furniture
     const moveFurniture = useCallback(
         (id: number, left: number, top: number) => {
             setFurniture(
@@ -129,7 +138,33 @@ const Board: React.FC = () => {
                         ></input>
                     </label>
                 </form>
-                <Button onClick={() => removeFurniture()}>Clear Board</Button>
+                <div id="clear-add-room">
+                    <Button
+                        className="space-button"
+                        onClick={() => removeFurniture()}
+                    >
+                        Clear Room
+                    </Button>
+                    <Button
+                        className="clear-add-button"
+                        onClick={() => createNewRoom()}
+                    >
+                        Add Room
+                    </Button>
+                </div>
+                <Col>
+                    <div id="choose-room">
+                        {savedRooms.map((currentRoom) => (
+                            <Button
+                                className="space-button"
+                                key={`room${currentRoom.id}`}
+                                onClick={() => switchRoom(currentRoom.id)}
+                            >
+                                Room {currentRoom.id}
+                            </Button>
+                        ))}
+                    </div>
+                </Col>
             </div>
             <div
                 ref={drop}
@@ -154,8 +189,8 @@ const Board: React.FC = () => {
                             top={top}
                             isInList={isInList}
                         >
-                            <div onDoubleClick={() => removeFurniture}>
-                                <img src={image} height="50px" />
+                            <div id="center">
+                                <img src={image} height="50vh" />
                             </div>
                         </Furniture>
                     );
@@ -171,6 +206,7 @@ export interface DragItem {
     top: number;
     left: number;
     isInList: boolean;
+    itemName: string;
 }
 
 export default Board;

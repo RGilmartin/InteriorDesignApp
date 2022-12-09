@@ -2,3 +2,39 @@
     display: grid;
     grid-template-columns: repeat(16, 50px);
 }
+
+.clear-add-button {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#choose-room {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.space-button {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#filter-container {
+    align-items: flex-start;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#center {
+    display: grid;
+    place-items: center;
+}

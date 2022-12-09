@@ -56,6 +56,9 @@ export const Furniture: FC<BoxProps> = ({
     const [rotation, setRotation] = useState<number>(0);
     const [showModal, setShowModal] = useState(false);
 
+    const [width, setWidth] = useState<number>(6);
+    const [length, setLength] = useState<number>(5);
+
     const handleClose = () => setShowModal(false);
     const handleShow = () => setShowModal(true);
 
@@ -86,7 +89,9 @@ export const Furniture: FC<BoxProps> = ({
                     ...roomStyle,
                     left,
                     top,
-                    rotate: rotation.toString() + "deg"
+                    rotate: rotation.toString() + "deg",
+                    height: 14 * length,
+                    width: 14 * width
                 }}
                 data-testid="box"
             >
@@ -103,7 +108,6 @@ export const Furniture: FC<BoxProps> = ({
                                 <Modal.Title>Furniture Settings</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                                <p>Rotation</p>
                                 <form>
                                     <label>
                                         Rotation:
@@ -113,6 +117,32 @@ export const Furniture: FC<BoxProps> = ({
                                             onChange={(n) => {
                                                 setRotation(+n.target.value);
                                             }}
+                                        ></input>
+                                    </label>
+                                    <label>
+                                        Item Length (ft):
+                                        <input
+                                            style={{
+                                                width: "50px",
+                                                margin: "0px 20px 0px 5px"
+                                            }}
+                                            type="number"
+                                            value={length}
+                                            onChange={(e) =>
+                                                setLength(+e.target.value)
+                                            }
+                                        ></input>
+                                        Item Width (ft):
+                                        <input
+                                            style={{
+                                                width: "50px",
+                                                margin: "0px 20px 0px 5px"
+                                            }}
+                                            type="number"
+                                            value={width}
+                                            onChange={(e) =>
+                                                setWidth(+e.target.value)
+                                            }
                                         ></input>
                                     </label>
                                 </form>
