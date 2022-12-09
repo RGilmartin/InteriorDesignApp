@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { CSSProperties, FC, ReactNode, useState } from "react";
+import { CSSProperties, FC, useState } from "react";
 import { useDrag } from "react-dnd";
 import Modal from "react-bootstrap/Modal";
 
@@ -31,7 +31,6 @@ export interface BoxProps {
     top: number;
     isInList: boolean;
     itemName?: string;
-    children?: ReactNode;
     image: string;
 }
 
@@ -41,7 +40,6 @@ export const Furniture: FC<BoxProps> = ({
     top,
     isInList,
     itemName,
-    children,
     image
 }) => {
     const [{ isDragging }, drag] = useDrag(
