@@ -27,13 +27,14 @@ const Board: React.FC = () => {
     //Add Furniture
     const AddFurniture = useCallback(
         (item: DragItem) => {
+            console.log("hello");
             const newFurnObj = {
                 ...furniture,
                 [uuid().toString()]: {
                     top: item.top,
                     left: item.left,
                     isInList: false,
-                    image: require("./images/sofa.jpg")
+                    image: item.image
                 }
             };
             setFurniture(update(furniture, { $set: newFurnObj }));
@@ -86,7 +87,6 @@ const Board: React.FC = () => {
             accept: ItemTypes.PIC,
             drop(item: DragItem, monitor: any) {
                 const isInList = item.isInList;
-                console.log(item);
                 if (isInList) {
                     // adds furniture;
                     AddFurniture(item);
@@ -188,11 +188,8 @@ const Board: React.FC = () => {
                             left={left}
                             top={top}
                             isInList={isInList}
-                        >
-                            <div id="center">
-                                <img src={image} height="50vh" />
-                            </div>
-                        </Furniture>
+                            image={image}
+                        ></Furniture>
                     );
                 })}
             </div>
@@ -207,6 +204,7 @@ export interface DragItem {
     left: number;
     isInList: boolean;
     itemName: string;
+    image: string;
 }
 
 export default Board;

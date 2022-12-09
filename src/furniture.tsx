@@ -32,6 +32,7 @@ export interface BoxProps {
     isInList: boolean;
     itemName?: string;
     children?: ReactNode;
+    image: string;
 }
 
 export const Furniture: FC<BoxProps> = ({
@@ -40,12 +41,13 @@ export const Furniture: FC<BoxProps> = ({
     top,
     isInList,
     itemName,
-    children
+    children,
+    image
 }) => {
     const [{ isDragging }, drag] = useDrag(
         () => ({
             type: ItemTypes.PIC,
-            item: { id, left, top, isInList },
+            item: { id, left, top, isInList, image },
             collect: (monitor) => ({
                 isDragging: monitor.isDragging()
             })
@@ -74,7 +76,9 @@ export const Furniture: FC<BoxProps> = ({
                 style={{ ...listStyle }}
                 data-testid="box"
             >
-                <div style={{ width: "30%" }}>{children}</div>
+                <div style={{ width: "30%" }}>
+                    <img src={image} height="50vh" />
+                </div>
                 <div style={{ width: "70%" }}>
                     <h3>{itemName}</h3>
                 </div>
@@ -89,14 +93,16 @@ export const Furniture: FC<BoxProps> = ({
                     ...roomStyle,
                     left,
                     top,
-                    rotate: rotation.toString() + "deg",
-                    height: 14 * length,
-                    width: 14 * width
+                    rotate: rotation.toString() + "deg"
                 }}
                 data-testid="box"
             >
                 <div onClick={handleShow}>
-                    {children}
+                    <img
+                        src={image}
+                        height={length * 14 + "px"}
+                        width={width * 14 + "px"}
+                    />
                     <div
                         onClick={(e) => {
                             e.stopPropagation();

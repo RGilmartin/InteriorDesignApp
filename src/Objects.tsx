@@ -128,56 +128,56 @@ const ItemList: React.FC = () => {
         setObject(
             update(object, {
                 $set: {
-                    0: {
+                    4: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Sofa",
                         image: Sofa
                     },
-                    1: {
+                    5: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Chair",
                         image: Chair
                     },
-                    2: {
+                    6: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "BookShelf",
                         image: BookShelf
                     },
-                    3: {
+                    7: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Table",
                         image: Table
                     },
-                    4: {
+                    8: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Rug",
                         image: Rug
                     },
-                    5: {
+                    9: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Love Seat",
                         image: LoveSeat
                     },
-                    6: {
+                    10: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Coffee Table",
                         image: Coffee
                     },
-                    7: {
+                    11: {
                         top: 0,
                         left: 0,
                         isInList: true,
@@ -194,49 +194,49 @@ const ItemList: React.FC = () => {
         setObject(
             update(object, {
                 $set: {
-                    0: {
+                    12: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Island",
                         image: Island
                     },
-                    1: {
+                    13: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Fridge",
                         image: Fridge
                     },
-                    2: {
+                    14: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Counter",
                         image: Counter
                     },
-                    3: {
+                    15: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Sink",
                         image: Sink
                     },
-                    4: {
+                    16: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Trashcan",
                         image: Trashcan
                     },
-                    5: {
+                    17: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "MicroWave",
                         image: Microwave
                     },
-                    6: {
+                    18: {
                         top: 0,
                         left: 0,
                         isInList: true,
@@ -253,42 +253,42 @@ const ItemList: React.FC = () => {
         setObject(
             update(object, {
                 $set: {
-                    0: {
+                    19: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Shower",
                         image: Shower
                     },
-                    1: {
+                    20: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Toilet",
                         image: Toilet
                     },
-                    2: {
+                    21: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Bath Sink",
                         image: BathSink
                     },
-                    3: {
+                    22: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Cabinet",
                         image: Cabinet
                     },
-                    4: {
+                    23: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Bath Can",
                         image: Trashcan
                     },
-                    5: {
+                    24: {
                         top: 0,
                         left: 0,
                         isInList: true,
@@ -305,56 +305,56 @@ const ItemList: React.FC = () => {
         setObject(
             update(object, {
                 $set: {
-                    0: {
+                    25: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Bed",
                         image: Bed
                     },
-                    1: {
+                    26: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Lamp",
                         image: Lamp
                     },
-                    2: {
+                    27: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Night Table",
                         image: NightTable
                     },
-                    3: {
+                    28: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Bedroom Rug",
                         image: Rug
                     },
-                    4: {
+                    29: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Desk",
                         image: Desk
                     },
-                    5: {
+                    30: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Bed Can",
                         image: Trashcan
                     },
-                    6: {
+                    31: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Desk Chair",
                         image: Chair
                     },
-                    7: {
+                    32: {
                         top: 0,
                         left: 0,
                         isInList: true,
@@ -371,42 +371,42 @@ const ItemList: React.FC = () => {
         setObject(
             update(object, {
                 $set: {
-                    0: {
+                    33: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Chair",
                         image: Chair
                     },
-                    1: {
+                    34: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Sink",
                         image: Sink
                     },
-                    2: {
+                    35: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Small Can",
                         image: Trashcan
                     },
-                    3: {
+                    36: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Night Table",
                         image: NightTable
                     },
-                    4: {
+                    37: {
                         top: 0,
                         left: 0,
                         isInList: true,
                         itemName: "Lamp",
                         image: Lamp
                     },
-                    5: {
+                    38: {
                         top: 0,
                         left: 0,
                         isInList: true,
@@ -538,9 +538,8 @@ const ItemList: React.FC = () => {
                             top={top}
                             isInList={isInList}
                             itemName={itemName}
-                        >
-                            <img src={image} height="50px" />
-                        </Furniture>
+                            image={image}
+                        ></Furniture>
                     </>
                 );
             })}
