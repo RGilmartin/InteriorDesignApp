@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-parens */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import update from "immutability-helper";
 import React, { CSSProperties, useCallback, useState } from "react";
@@ -11,7 +12,6 @@ import "../board.css";
 import { ItemTypes } from "../constants";
 // import ItemComp from "../Item";
 import { Furniture } from "../furniture";
-import Sofa from "./images/sofa.jpg";
 import { SavedRoom } from "./savedroom";
 
 const Board: React.FC = () => {
